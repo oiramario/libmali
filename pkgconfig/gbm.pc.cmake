@@ -5,7 +5,7 @@ includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
 
 Name: gbm
 Description: Mali GBM library
-Version: @GPU_LIBRARY_VER_RELEASE@.@GPU_LIBRARY_VER_PATCH@
+Version: 10.4.0
 Libs: -L${libdir} -l@TARGET_LIB_LINK_NAME@
 Libs.private: -lm -lpthread -ldl -ldrm
 Cflags: -I${includedir} 

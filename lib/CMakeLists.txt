@@ -43,98 +43,7 @@ SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t86x-r14p0-r0p0-x11-gbm.so")
 elseif (DP_FEATURE MATCHES "gbm")
 SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t86x-r14p0-r0p0-gbm.so")
 
-elseif (DP_FEATURE MATCHES "fbdev")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t86x-r14p0-r0p0-fbdev.so")
-endif(DP_FEATURE MATCHES "wayland")
-
 endif(TARGET_SOC MATCHES "rk3399")
-
-if (TARGET_SOC MATCHES "rk3326")
-SET(GPU_FEATURE "${GPU_FEATURE} opencl" PARENT_SCOPE)
-SET(ABI "aarch64-linux-gnu")
-
-if (DP_FEATURE MATCHES "wayland")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-bifrost-g31-r6p0-r0p0-wayland-gbm.so")
-
-elseif (DP_FEATURE MATCHES "gbm")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-bifrost-g31-r6p0-r0p0-gbm.so")
-endif(DP_FEATURE MATCHES "wayland")
-
-endif(TARGET_SOC MATCHES "rk3326")
-
-if (TARGET_SOC MATCHES "rk3288")
-SET(GPU_FEATURE "${GPU_FEATURE} opencl" PARENT_SCOPE)
-SET(ABI "arm-linux-gnueabihf" CACHE STRING "default ABI")
-
-if (DP_FEATURE MATCHES "wayland")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r0p0-wayland-gbm.so")
-
-elseif (DP_FEATURE MATCHES "x11")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r0p0-x11-gbm.so")
-
-elseif (DP_FEATURE MATCHES "gbm")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r0p0-gbm.so")
-
-elseif (DP_FEATURE MATCHES "fbdev")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r0p0-fbdev.so")
-endif(DP_FEATURE MATCHES "wayland")
-
-endif(TARGET_SOC MATCHES "rk3288")
-
-if (TARGET_SOC MATCHES "rk3288w")
-SET(GPU_FEATURE "${GPU_FEATURE} opencl" PARENT_SCOPE)
-SET(ABI "arm-linux-gnueabihf" CACHE STRING "default ABI")
-
-if (DP_FEATURE MATCHES "wayland")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r1p0-wayland-gbm.so")
-
-elseif (DP_FEATURE MATCHES "x11")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r1p0-x11-gbm.so")
-
-elseif (DP_FEATURE MATCHES "gbm")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r1p0-gbm.so")
-
-elseif (DP_FEATURE MATCHES "fbdev")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t76x-r14p0-r1p0-fbdev.so")
-endif(DP_FEATURE MATCHES "wayland")
-
-endif(TARGET_SOC MATCHES "rk3288w")
-
-if (TARGET_SOC MATCHES "rk3328")
-SET(ABI "aarch64-linux-gnu" CACHE STRING "default ABI")
-
-if (DP_FEATURE MATCHES "wayland")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-450-r7p0-r0p0-wayland-gbm.so")
-
-elseif (DP_FEATURE MATCHES "x11")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-450-r7p0-r0p0-x11-gbm.so")
-
-elseif (DP_FEATURE MATCHES "gbm")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-450-r7p0-r0p0-gbm.so")
-
-elseif (DP_FEATURE MATCHES "fbdev")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-450-r7p0-r0p0-fbdev.so")
-endif(DP_FEATURE MATCHES "wayland")
-
-endif(TARGET_SOC MATCHES "rk3328")
-
-if (TARGET_SOC MATCHES "rk3036")
-SET(ABI "arm-linux-gnueabihf" CACHE STRING "default ABI")
-
-if (DP_FEATURE MATCHES "wayland")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-400-r7p0-r0p0-wayland-gbm.so")
-
-elseif (DP_FEATURE MATCHES "x11")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-400-r7p0-r0p0-x11-gbm.so")
-
-elseif (DP_FEATURE MATCHES "gbm")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-400-r7p0-r0p0-gbm.so")
-
-elseif (DP_FEATURE MATCHES "fbdev")
-SET(TARGET_GPU_LIBRARY_NAME "libmali-utgard-400-r7p0-r0p0-fbdev.so")
-endif(DP_FEATURE MATCHES "wayland")
-
-endif(TARGET_SOC MATCHES "rk3036")
 
 parse_mali_library_info(${TARGET_GPU_LIBRARY_NAME})
 INSTALL(FILES
@@ -170,11 +79,37 @@ link_install_library(${target} ${link})
 SET(link "libEGL.so")
 link_install_library(${target} ${link})
 
+SET(link "libEGL.so.1")
+link_install_library(${target} ${link})
+
+SET(link "libEGL.so.1.0.0")
+link_install_library(${target} ${link})
+
 SET(link "libGLESv1_CM.so")
 link_install_library(${target} ${link})
 
 SET(link "libGLESv2.so")
 link_install_library(${target} ${link})
+
+SET(link "libGLESv2.so.2")
+link_install_library(${target} ${link})
+
+SET(link "libGLESv2.so.2.0.0")
+link_install_library(${target} ${link})
+
+SET(link "libgbm.so")
+link_install_library(${target} ${link})
+
+SET(link "libgbm.so.1")
+link_install_library(${target} ${link})
+
+SET(link "libgbm.so.1.0.0")
+link_install_library(${target} ${link})
+
+if(GPU_FEATURE MATCHES "opencl")
+SET(link "libOpenCL.so")
+link_install_library(${target} ${link})
+endif(GPU_FEATURE MATCHES "opencl")
 
 endif(CMAKE_HOST_UNIX)
 
