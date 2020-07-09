@@ -30,5 +30,5 @@ endif(GPU_FEATURE MATCHES "opencl")
 
 # Except the for gbm display platform, only for wayland
 # included the gbm features actually.
-INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gbm.h"
+INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/gbm.h"
 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
