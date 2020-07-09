@@ -42,6 +42,7 @@ SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t86x-r14p0-r0p0-x11-gbm.so")
 
 elseif (DP_FEATURE MATCHES "gbm")
 SET(TARGET_GPU_LIBRARY_NAME "libmali-midgard-t86x-r14p0-r0p0-gbm.so")
+endif(DP_FEATURE MATCHES "wayland")
 
 endif(TARGET_SOC MATCHES "rk3399")
 
